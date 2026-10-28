@@ -1,0 +1,14 @@
+.env
+.venv/
+.git/
+__pycache__/
+*.py[cod]
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+notifications-service/
+orders-service/
+payments-service/
+notification_consumer.py
+setup_broker.py
