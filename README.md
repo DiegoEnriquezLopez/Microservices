@@ -4,25 +4,32 @@ A local distributed-systems project that simulates an online purchasing workflow
 
 ## Products Service
 
-Displays the product catalog, inventory information, and product-related operations.
+Manages the product catalog, product prices, available inventory, and stock-related operations.
 
 <img width="713" height="394" alt="image" src="https://github.com/user-attachments/assets/c8e67b3f-2372-437d-bebc-a10f6d69cd01" />
 
 ## Orders Service
 
-Demonstrates order creation and the responses returned by the service during the purchase workflow.
+Receives purchase requests, coordinates the checkout workflow, stores order information, and communicates with the other services.
 
 <img width="713" height="422" alt="image" src="https://github.com/user-attachments/assets/21dc3932-a887-4774-8960-6ef78bea7d99" />
 
 ## Payments Service
 
-Shows the simulated payment processing operations and their responses.
+Simulates payment processing and returns payment results. It does not connect to a real payment provider.
 
 <img width="713" height="342" alt="image" src="https://github.com/user-attachments/assets/65da55db-9a5b-4021-8c36-e81faa38db9d" />
 
 ## Notifications Service
 
-Shows the processing of order confirmation events through RabbitMQ in the terminal.
+Processes purchase confirmation messages and records or displays the corresponding notifications. RabbitMQ supports asynchronous communication with this service.
+
+## Communication
+
+The system uses two communication patterns:
+
+- Synchronous communication: services exchange HTTP requests and responses.
+- Asynchronous communication: RabbitMQ transports messages that can be processed independently by a consumer.
 
 ## Technologies
 
@@ -53,6 +60,46 @@ Products owns both the catalog and inventory so that one service controls availa
 Notifications runs as a worker without an HTTP server. RabbitMQ transports events, while Orders coordinates the business workflow. `broker.py` contains Orders' RabbitMQ integration; it is not an additional business service.
 
 Prices are stored as integer amounts in MXN cents.
+
+## Prerequisites
+
+Before running the project, make sure the following software is installed:
+
+- **Git** — to clone the repository.
+- **Python 3** — to create the virtual environment and run the microservices.
+- **Docker Desktop** — to run RabbitMQ.
+- **Docker Compose** — to manage the RabbitMQ container.
+- **PowerShell** — to execute the commands in this guide.
+
+Verify the installations:
+
+```powershell
+git --version
+py -3 --version
+docker --version
+docker compose version
+```
+
+Make sure Docker Desktop is running before starting RabbitMQ.
+
+## Download the Project
+
+Clone the repository:
+
+```powershell
+git clone https://github.com/DiegoEnriquezLopez/Microservices.git
+cd Microservices
+```
+
+If `distributed-store-practice-3` is a subdirectory inside the repository, navigate into it:
+
+```powershell
+cd distributed-store-practice-3
+```
+
+Run the remaining commands from the project root, where `requirements.txt`, `compose.yaml`, and `.env.example` are located.
+
+After downloading the project, follow the instructions in [Start in PowerShell](#start-in-powershell) to configure the environment, install dependencies, start RabbitMQ, and run the microservices.
 
 ## Start in PowerShell
 
