@@ -2,6 +2,28 @@
 
 A local distributed-systems project that simulates an online purchasing workflow using independent Python microservices. The application coordinates product inventory, simulated payments, order processing, and asynchronous notifications.
 
+## Products Service
+
+Displays the product catalog, inventory information, and product-related operations.
+
+<img width="713" height="394" alt="image" src="https://github.com/user-attachments/assets/c8e67b3f-2372-437d-bebc-a10f6d69cd01" />
+
+## Orders Service
+
+Demonstrates order creation and the responses returned by the service during the purchase workflow.
+
+<img width="713" height="422" alt="image" src="https://github.com/user-attachments/assets/21dc3932-a887-4774-8960-6ef78bea7d99" />
+
+## Payments Service
+
+Shows the simulated payment processing operations and their responses.
+
+<img width="713" height="342" alt="image" src="https://github.com/user-attachments/assets/65da55db-9a5b-4021-8c36-e81faa38db9d" />
+
+## Notifications Service
+
+Shows the processing of order confirmation events through RabbitMQ in the terminal.
+
 ## Technologies
 
 - **Python** — application logic and service implementation.
